@@ -5,7 +5,7 @@ import EventEmitter from 'events';
 class WebOSService extends EventEmitter {
     #ServiceHandle: Service;
 
-    constructor(ServiceImpl: typeof Service, serviceName: string, activityManager: ActivityManager, options: Service.ServiceOptions) {
+    constructor(ServiceImpl: typeof Service, serviceName: string, activityManager?: ActivityManager, options?: Service.ServiceOptions) {
         super();
         const service: Service = new ServiceImpl(serviceName, activityManager, options);
         service.register(serviceName, (message: Message) => {
